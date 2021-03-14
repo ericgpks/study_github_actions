@@ -11,7 +11,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   note:
-    if: ${{ github.event.label.name == 'dev ready' }} || ${{ github.event.label.name == 'documentation' }}
+    if: ${{ github.event.label.name == 'dev ready' }}
     runs-on: ubuntu-latest
     steps:
       - name: comment note to ISSUE
