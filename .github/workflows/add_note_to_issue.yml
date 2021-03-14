@@ -5,13 +5,15 @@ name: Add Note To Issue By Label
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    tags:
-      - dev verified
+  issues:
+    push:
+      labels:
+        - 'dev ready'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   note:
+    if: always()
     name: Note
     runs-on: ubuntu-latest
     steps:
