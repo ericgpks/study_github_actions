@@ -19,6 +19,7 @@ jobs:
       - name: comment note to ISSUE
         uses: peter-evans/create-or-update-comment@v1.4.4
         with:
+          issue-number: ${{ github.event.issue.number }}
           body: |
             #  notes
             
