@@ -6,14 +6,12 @@ name: Add Note To Issue By Label
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   issues:
-    push:
-      labels:
-        - 'dev ready'
+    types: [ labeled ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   note:
-    name: Note
+    if: ${{ github.event.label.name == 'dev ready' }}
     runs-on: ubuntu-latest
     steps:
       - name: comment note to ISSUE
